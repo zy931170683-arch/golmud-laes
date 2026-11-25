@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101d23">
+<meta name="description" content="青海格尔木液态空气储能示范项目，三维运行原理交互展台。">
+<title>格尔木液态空气储能 · 运行原理</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="./style.css?v=hd-1">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+</head>
+<body>
+<header class="mast">
+  <a class="brand" href="./" aria-label="格尔木储能首页"><i class="mark" aria-hidden="true">◈</i><span><b>格尔木液态空气储能</b><small>青海格尔木 · 中国绿发示范项目</small></span></a>
+  <div class="header-stats"><div><strong>60</strong><span> MW</span><small>发电功率</small></div><div><strong>600</strong><span> MWh</span><small>储能容量</small></div></div>
+  <div class="mode"><i></i> 原理演示</div>
+</header>
+<main class="workbench">
+  <aside class="navigation" aria-label="运行流程">
+    <h2>运行流程</h2><p>选择工序，查看设备与流向。</p>
+    <nav id="stages" aria-label="运行阶段与能量循环"></nav>
+  </aside>
+  <section class="center" aria-label="三维场站">
+    <div class="viewport" id="viewport">
+      <div class="poster"></div><div id="scene" class="scene"></div><div id="hotspots" class="hotspots"></div>
+      <div class="view-title"><div class="view-kicker">三维场站</div><h1 id="view-name">全站总览</h1><div id="view-sub">压缩、液化、储存、释能</div></div>
+      <div class="view-tools">
+        <button id="overview" type="button" title="返回全站">全站</button><button id="labels" type="button" aria-pressed="true">标注</button><button id="section" type="button" aria-pressed="false" disabled>剖面</button><button id="dof" type="button" aria-pressed="true">景深</button><button id="panels" type="button" aria-pressed="true">面板</button><button id="fullscreen" type="button" title="全屏" aria-label="全屏">⛶</button>
+      </div>
+      <div class="load" id="load" role="status"><span class="spinner"></span><span id="load-text">正在准备三维场站</span><button id="retry" hidden>重试</button></div>
+      <div class="view-foot"><span>拖动旋转 <i></i> 滚轮缩放</span><span id="view-state">场站模型</span></div>
+    </div>
+    <div class="transport">
+      <button id="play-all" class="play-cycle" type="button">播放全流程</button>
+      <div class="timeline"><div class="timeline-label"><strong id="timeline-name">空气过滤与净化</strong><span id="timeline-count">01 / 03</span></div><progress id="run-progress" max="1" value="0" aria-label="场站循环进度"></progress></div>
+      <div class="beat-controls"><button id="prev-beat" title="上一工序" aria-label="上一工序">‹</button><button id="next-beat" title="下一工序" aria-label="下一工序">›</button></div>
+    </div>
+  </section>
+  <aside class="inspector" aria-label="设备与参数">
+    <div class="panel-title"><span id="inspector-type">当前阶段</span><span id="status" class="status">运行中</span></div>
+    <h2 id="equipment-name">压缩与蓄热</h2><p id="description"></p>
+    <dl id="parameters"></dl>
+    <div id="cold-box-level" class="liquid-level" hidden>
+      <label for="cold-box-gauge">冷箱内部 · 示意液位</label><span id="cold-box-percent"></span>
+      <progress id="cold-box-gauge" max="100" value="0"></progress>
+    </div>
+    <div id="equipment-action"></div>
+    <section class="flow-key"><h3>介质图例</h3><div><i style="--ink:#ffdd67"></i>进排气 / 压缩空气 <i style="--ink:#609fff"></i>高压进箱空气</div><div><i style="--ink:#49caff"></i>液态空气 <i style="--ink:#c48aff"></i>复温 / 膨胀空气</div><div><i style="--ink:#70e497"></i>冷水 <i style="--ink:#ff684f"></i>热水</div><div><i style="--ink:#ffaf3e"></i>一级蓄冷工质 <i style="--ink:#ef71ac"></i>二级蓄冷工质</div><div><i style="--ink:#a4e9ff"></i>并网电能</div></section>
+    <details class="sources"><summary>数据与演示说明</summary><p>60 MW、600 MWh 与 −194 °C 来自公开项目资料。设备与供回管按标注总图展示。四级膨胀按前后两组演示级间再热。颜色表示介质和热状态，箭头表示当前流向。液位与进度为演示值。</p><a href="https://www.geermu.gov.cn/details?id=ff8080819983a59e019a803928cd082e" target="_blank" rel="noreferrer">格尔木市政府项目资料 ↗</a><a href="https://www.csee.org.cn/pic/u/cms/www/202506/13140401pafi.pdf" target="_blank" rel="noreferrer">液态空气储能技术资料 ↗</a></details>
+  </aside>
+</main>
+<footer><span>格尔木 60 MW / 600 MWh 液态空气储能示范项目</span><span>运行原理可视化 · 参数以公开资料为准</span></footer>
+<script type="module" src="./app.js?v=hd-1"></script>
+</body></html>
